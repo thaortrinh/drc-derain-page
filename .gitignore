@@ -1,0 +1,20 @@
+.DS_Store
+Thumbs.db
+*.mov
+*.zip
+*.psd
+
+# Scratch dir created by sync-assets.sh (removed on exit, ignored just in case
+# a run is killed hard).
+.sync-stage.*
+
+# Video is NOT committed by default: GitHub Pages repos are capped at 1 GB and
+# a 2-3 min MP4 bloats clone size for everyone.
+#
+# Prefer an unlisted YouTube/Vimeo iframe in the Video Demo section.
+#
+# If you really do want to ship the file from this repo, uncomment the negation
+# below — otherwise `git add assets/teaser.mp4` silently does nothing and the
+# video 404s on the live site while working fine locally.
+*.mp4
+# !assets/teaser.mp4
