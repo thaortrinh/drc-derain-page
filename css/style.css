@@ -1,3 +1,10 @@
+html {
+  /* Nav-link clicks (.tabs-nav -> #section) and any other same-page #anchor
+     jump animate instead of snapping. Turned off below for users who've
+     asked their OS for reduced motion. */
+  scroll-behavior: smooth;
+}
+
 :root {
   --bg: #fafafa;
   --surface: #ffffff;
@@ -239,8 +246,10 @@ h2 {
 
 .section {
   padding: 2rem 0;
-  /* Breathing room above a section when a .tabs-nav link jumps to it. */
-  scroll-margin-top: 1.25rem;
+  /* Clears the sticky .tabs-nav (~3.8rem tall: its own 1.5rem padding +
+     each tab's 1.2rem padding + line-height) plus a little breathing room,
+     so a nav-link jump doesn't land the section's heading underneath it. */
+  scroll-margin-top: 4.5rem;
 }
 
 .section + .section {
@@ -649,6 +658,10 @@ figcaption {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .compare[data-auto] .compare__handle::before,
   .compare[data-auto] .compare__handle::after {
     opacity: 1;
